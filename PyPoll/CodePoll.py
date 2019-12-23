@@ -41,16 +41,17 @@ with open('election_data.csv','r') as f:
     #calculate % votes
     percent=[x/total_votes*100 for x in values]
     percent=["%.2f" % i for i in percent]
-    percent_symb=['%']*len(percent)
+    #percent_symb=['%']*len(percent)
+    #adding % character
+    percent_symb=[i+"%" for i in percent]
     #print(percent_symb)
-    #percent=percent("%.3f%%" % ([x/total_votes*100 for x in values]))
     #print(percent)
     
     #creating list of tuples
-    sumList=list(zip(keys,values,percent,percent_symb))
+    sumList=list(zip(keys,values,percent_symb))
     #print(sumList)
     for i in sumList:
-        print(*i,sep=' ')
+        print(*i,sep='    ')
     
     sort_winner=sorted(sumList,key=lambda tup:tup[1])
     winner=sort_winner[len(sort_winner)-1]
