@@ -21,10 +21,10 @@ with open('election_data.csv','r') as f:
 #Printing list of candidates
     result = [candidate[2] for candidate in mylist]
     #print(result[:10])
-    result_i=result[:10]
+    #result_i=result[:10]
     #print(result_i)  #result_ is a sample
 #counting votes for each candidate
-    votes={i:result_i.count(i) for i in result_i}
+    votes={i:result.count(i) for i in result}
     #print(votes)
 
     #converting dictionary result into lists
@@ -52,6 +52,17 @@ with open('election_data.csv','r') as f:
     print(winner[0])
     print('---------------------------')
 
+#print to .txt file
+with open('elections.txt','w') as f:
+    print('Election Results',file=f)
+    print('----------------------------',file=f)
+    print('Total Votes:  '+str(total_votes),file=f)
+    print('-------------------------------',file=f)
+    print(*sumList,sep='\n')
+    print('-------------------------')
+    print('Winner')
+    print(winner[0])
+    print('---------------------------')
 
 
 
