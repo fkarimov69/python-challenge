@@ -5,7 +5,7 @@ csv_file=os.path.join("election_data.csv")
 
 print('Election Results')
 print('----------------------------')
-# convert csv to dictionary
+# convert csv to list
 with open('election_data.csv','r') as f:
     f.readline() # ignore first line (header)
     reader=csv.reader(f)
@@ -21,10 +21,10 @@ with open('election_data.csv','r') as f:
 #Printing list of candidates
     result = [candidate[2] for candidate in mylist]
     #print(result[:10])
-    result_i=result[:100]
+    #result_i=result[:100]
     #print(result_i)  #result_ is a sample
 #counting votes for each candidate
-    votes={i:result_i.count(i) for i in result_i}
+    votes={i:result.count(i) for i in result}
     #votes={candidate:mylist[2].count(candidate) for candidate in mylist}
     #votes=votes[:10]
     #print(votes)
